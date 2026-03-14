@@ -42,8 +42,10 @@ Rate-face API: app sends a base64 image + optional context; backend returns deta
 ## Deploy on Render
 
 1. New **Web Service** → connect repo `looksmaxxai_backend`.
-2. **Root Directory:** leave **empty** (so `dist/` is created at repo root).
+2. **Root Directory:** leave **empty** (must be blank so `dist/` and `run.js` are at project root).
 3. **Build Command:** `npm install && npm run build`
-4. **Start Command:** `npm start`
+4. **Start Command:** `node run.js` (or `npm start`)
 5. **Environment:** add `GEMINI_API_KEY` (or `GROQ_API_KEY` / `ANTHROPIC_API_KEY`). Optionally `PORT`.
 6. Deploy. Your API URL will be like `https://looksmaxxai-backend.onrender.com`.
+
+If you see `Cannot find module .../src/dist/index.js`, clear **Root Directory** in Render (do not set it to `src`).

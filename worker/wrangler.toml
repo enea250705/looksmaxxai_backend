@@ -2,6 +2,8 @@
 name = "looksmaxxai-backend"
 main = "index.js"
 compatibility_date = "2024-01-01"
+workers_dev = true
+preview_urls = true
 
 # Set GEMINI_API_KEY in Cloudflare dashboard: Workers & Pages → your worker → Settings → Variables and Secrets
 # Or: npx wrangler secret put GEMINI_API_KEY

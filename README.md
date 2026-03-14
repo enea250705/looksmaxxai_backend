@@ -48,4 +48,5 @@ Rate-face API: app sends a base64 image + optional context; backend returns deta
 5. **Environment:** add `GEMINI_API_KEY` (or `GROQ_API_KEY` / `ANTHROPIC_API_KEY`). Optionally `PORT`.
 6. Deploy. Your API URL will be like `https://looksmaxxai-backend.onrender.com`.
 
-If you see `Cannot find module .../src/dist/index.js`, clear **Root Directory** in Render (do not set it to `src`).
+- **If you use Root Directory `src`:** set Start Command to `node run.js` (this uses `src/run.js`, which loads `../dist/index.js`).
+- **If Root Directory is empty:** set Start Command to `node run.js` (uses root `run.js`).

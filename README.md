@@ -89,3 +89,21 @@ The repo includes a **Dockerfile**. Use it on any platform that runs Docker:
 - **Vercel:** Use the [Vercel Node server](https://vercel.com/docs/functions/serverless-functions/runtimes#node.js) or a single serverless function that proxies to your logic; requires a small adapter.
 - **DigitalOcean App Platform:** Connect the GitHub repo, set build/start to `npm run build` and `npm start`, add env vars.
 - **Koyeb / Cyclic:** Connect repo, set build and start commands, add env vars (same as Railway).
+
+---
+
+## Deploy on Cloudflare (Worker, not Pages)
+
+Cloudflare **Pages** expects static files, so the Node backend is not suitable for Pages. Use a **Worker** instead.
+
+1. In this repo there is a **`worker/`** folder with a Cloudflare Worker that implements the same API (Gemini only).
+2. From your machine:
+   ```bash
+   cd worker
+   npx wrangler login
+   npx wrangler secret put GEMINI_API_KEY   # paste your key
+   npx wrangler deploy
+   ```
+3. Your API URL will be like `https://looksmaxxai-backend.<subdomain>.workers.dev`. Set the app’s `EXPO_PUBLIC_API_URL` to this URL.
+
+See **`worker/README.md`** for details. Do **not** deploy the backend repo as Cloudflare **Pages**; use the Worker from the `worker` folder.

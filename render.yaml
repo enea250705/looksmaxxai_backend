@@ -1,0 +1,11 @@
+# Render Blueprint – run from repo root (do not set Root Directory to src/)
+services:
+  - type: web
+    name: looksmaxxai-backend
+    runtime: node
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: "20"
+    # Add env vars in Render Dashboard: GEMINI_API_KEY (or GROQ_API_KEY / ANTHROPIC_API_KEY), PORT

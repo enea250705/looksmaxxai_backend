@@ -38,3 +38,12 @@ Rate-face API: app sends a base64 image + optional context; backend returns deta
 - **Local (same machine):** App uses `http://localhost:3000` by default (see `app.json` → `extra.API_URL`).
 - **Phone/emulator:** Use your computer’s LAN IP, e.g. `http://192.168.1.100:3000`. Override via `app.config.js` and `EXPO_PUBLIC_API_URL`, or set `extra.API_URL` in `app.json` before building.
 - **Production:** Deploy this backend (e.g. Railway, Render, Fly.io) and set the app’s `API_URL` to your deployed URL.
+
+## Deploy on Render
+
+1. New **Web Service** → connect repo `looksmaxxai_backend`.
+2. **Root Directory:** leave **empty** (so `dist/` is created at repo root).
+3. **Build Command:** `npm install && npm run build`
+4. **Start Command:** `npm start`
+5. **Environment:** add `GEMINI_API_KEY` (or `GROQ_API_KEY` / `ANTHROPIC_API_KEY`). Optionally `PORT`.
+6. Deploy. Your API URL will be like `https://looksmaxxai-backend.onrender.com`.
